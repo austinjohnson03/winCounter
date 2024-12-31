@@ -1,0 +1,43 @@
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    text-align: left;
+    color: white;
+}
+
+.wld {
+}
+
+body.bg-enabled {
+    background-color: #333;
+}
+
+#wins, #losses, #draws {
+    font-size: 36px;
+    margin: 5px;
+}
+
+.counter-container {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.toggle-container {
+    text-align: center;
+}
+
+button {
+    padding: 10px 20px;
+    margin: 0 10px;
+    font-size: 20px;
+    color: white;
+    background: #007BFF;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  button:hover {
+    background: #0056b3;
+  }
+  button:active {
+    transform: scale(0.95);
+  }
