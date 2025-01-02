@@ -1,3 +1,5 @@
+from rank import Rank
+
 class Counter:
     def __init__(
             self, 
@@ -10,6 +12,7 @@ class Counter:
         self._losses = lossses
         self._draws = draws
         self._rs = rs
+        self._rank = Rank().from_sr(rs)
 
     @property
     def wins(self) -> int:
@@ -43,6 +46,14 @@ class Counter:
     def rs(self, rs: int) -> None:
         self._rs = rs
 
+    @property
+    def rank(self) -> str:
+        return self._rank.rank
+    
+    @rank.setter
+    def rank(self, rs: int) -> None:
+        self._rank
+
     def add_win(self) -> None:
         self._wins += 1
 
@@ -63,7 +74,17 @@ class Counter:
 
     def __str__(self) -> str:
         if self._draws == 0:
-            return f'Wins: {self._wins}\nLosses: {self._losses}\n'
+            return f'Rank: {self._rank.name}\nWins: {self._wins}\nLosses: {self._losses}\n'
         
         return f'Wins: {self._wins}\nLosses: {self._losses}\nDraws: {self._draws}\n'
+    
+if __name__ == '__main__':
+    counter = Counter(0, 0, 0, 3451)
+    print(counter)
+    counter.add_win()
+    counter.add_loss()
+    counter.add_draw()
+    print(counter)
+    counter.reset_counter()
+    print(counter)
     
