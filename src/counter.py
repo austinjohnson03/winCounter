@@ -43,6 +43,27 @@ class Counter:
     def rs(self, rs: int) -> None:
         self._rs = rs
 
+    def add_win(self) -> None:
+        self._wins += 1
+
+    def add_loss(self) -> None:
+        self._losses += 1
+
+    def add_draw(self) -> None:
+        self._draws += 1
+
+    def reset_counter(self) -> None:
+        self._wins = 0
+        self._losses = 0
+        self._draws = 0
+
+    def to_file(self, file_path: str) -> None:
+        with open(file_path, 'w') as file:
+            file.write(str(self))
+
     def __str__(self) -> str:
+        if self._draws == 0:
+            return f'Wins: {self._wins}\nLosses: {self._losses}\n'
+        
         return f'Wins: {self._wins}\nLosses: {self._losses}\nDraws: {self._draws}\n'
     
