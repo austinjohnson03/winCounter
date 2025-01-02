@@ -85,6 +85,9 @@ class App(tk.Tk):
     def to_file(self):
         self.counter.to_file('counter.txt')
 
+    def from_file(self):
+        self.counter.from_file('counter.txt')
+
 
 
 if __name__ == '__main__':
